@@ -4,18 +4,17 @@ package server;
 // Save file as Server.java
 
 import java.io.*;
-import java.text.*;
-import java.util.*;
 import java.net.*;
 
 // Server class
 public class Server
 {
+    static final int PORT = 5056;
 	public static void main(String[] args) throws IOException
 	{
 		// server is listening on port 5056
-		ServerSocket ss = new ServerSocket(5056);
-		
+		ServerSocket ss = new ServerSocket(PORT);
+		System.out.println("Server started on port "+ PORT);
 		// running infinite loop for getting
 		// client request
 		while (true)
