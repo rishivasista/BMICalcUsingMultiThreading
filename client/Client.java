@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 // Client class
 public class Client
-{
+{   
+    static final int PORT = 5056;
 	public static void main(String[] args) throws IOException
 	{
 		try
@@ -17,10 +18,10 @@ public class Client
 			
 			// getting localhost ip
 			InetAddress ip = InetAddress.getByName("localhost");
-	
+            
 			// establish the connection with server port 5056
-			Socket s = new Socket(ip, 5056);
-	
+			Socket s = new Socket(ip, PORT);
+            System.out.println("Connect on IP "+ip+" and Port " + PORT);
 			// obtaining input and out streams
 			DataInputStream dis = new DataInputStream(s.getInputStream());
 			DataOutputStream dos = new DataOutputStream(s.getOutputStream());
