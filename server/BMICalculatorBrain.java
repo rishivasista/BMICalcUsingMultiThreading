@@ -15,6 +15,6 @@ public class BMICalculatorBrain {
 
     String getResult(){
         double result = weight/((height/100) * (height /100));
-        return String.valueOf(result);
+        return "Your BMI is : " + String.valueOf(result) + "\n\n";
     }
 }

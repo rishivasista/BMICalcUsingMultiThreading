@@ -23,11 +23,11 @@ public class BMRCalculatorBrain {
     String getResult(){
         if(gender.toLowerCase().equals("male")){
             result = getBMRForMale();
-            return String.valueOf(result);
+            return "Your BMR is " + String.valueOf(result) + "\n\n";
         }
         else if(gender.toLowerCase().equals("female")){
             result = getBMRForFemale();
-            return String.valueOf(result);
+            return "Your BMR is " + String.valueOf(result) + "\n\n";
         }
         else{
             System.out.println("Gender should be Male or Female");
