@@ -63,7 +63,7 @@ public class Client
                 }
 				// If client sends exit,close this connection
 				// and then break from the while loop
-				else if(tosend.equals("Exit"))
+				else if(tosend.toLowerCase().equals("exit"))
 				{
 					System.out.println("Closing this connection : " + s);
 					s.close();
