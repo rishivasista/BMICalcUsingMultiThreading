@@ -43,15 +43,36 @@ public class Client
                     int height = scn.nextInt();
                     dos.writeInt(height);
                 }
+
+                else if(tosend.toLowerCase().equals("bmr")){
+                    System.out.println(dis.readUTF());
+                    int weight = scn.nextInt();
+                    dos.writeInt(weight);
+                    
+                    System.out.println(dis.readUTF());
+                    int height = scn.nextInt();
+                    dos.writeInt(height);
+
+                    System.out.println(dis.readUTF());
+                    int age = scn.nextInt();
+                    dos.writeInt(age);
+                    
+                    System.out.println(dis.readUTF());
+                    String gender = scn.nextLine();
+                    dos.writeUTF(gender);
+                }
 				// If client sends exit,close this connection
 				// and then break from the while loop
-				if(tosend.equals("Exit"))
+				else if(tosend.equals("Exit"))
 				{
 					System.out.println("Closing this connection : " + s);
 					s.close();
 					System.out.println("Connection closed");
 					break;
 				}
+                else {
+                    System.out.println("Invalid Choice");
+                }
 				
 				// printing date or time as requested by client
 				String received = dis.readUTF();
