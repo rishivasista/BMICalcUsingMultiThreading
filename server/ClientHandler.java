@@ -72,8 +72,8 @@ class ClientHandler extends Thread
 
                     dos.writeUTF("Enter age in years\n");
                         int age = dis.readInt();
-                    dos.writeUTF("Enter gender as in Male or Female");
-                        String gender = dis.readUTF();
+                    dos.writeUTF("Enter gender as in Male or Female\n");
+                        String gender = dis.readUTF().toLowerCase();
                         BMRCalculatorBrain bmr = new BMRCalculatorBrain(gender, weight, height, age);
                     dos.writeUTF(bmr.getResult());
 						break;

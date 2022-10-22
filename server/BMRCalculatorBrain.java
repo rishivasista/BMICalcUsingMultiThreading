@@ -21,11 +21,11 @@ public class BMRCalculatorBrain {
         return 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
     }
     String getResult(){
-        if(gender.toLowerCase().equals("male")){
+        if(gender.equals("male")){
             result = getBMRForMale();
             return "Your BMR is " + String.valueOf(result) + "\n\n";
         }
-        else if(gender.toLowerCase().equals("female")){
+        else if(gender.equals("female")){
             result = getBMRForFemale();
             return "Your BMR is " + String.valueOf(result) + "\n\n";
         }
