@@ -34,6 +34,11 @@ public class Client
 				String tosend = scn.nextLine();
 				dos.writeUTF(tosend);
 				
+                if(tosend.toLowerCase().equals("bmi")){
+                    System.out.println(dis.readUTF());
+                    int weight = scn.nextInt();
+                    dos.writeInt(weight);
+                }
 				// If client sends exit,close this connection
 				// and then break from the while loop
 				if(tosend.equals("Exit"))

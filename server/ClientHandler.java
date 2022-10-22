@@ -32,12 +32,16 @@ class ClientHandler extends Thread
 			try {
 
 				// Ask user what he wants
-				dos.writeUTF("What do you want?[Date | Time]..\n"+
+				dos.writeUTF("What do you want?[BMI | BMR]..\n"+
 							"Type Exit to terminate connection.");
 				
 				// receive the answer from client
 				received = dis.readUTF();
-				
+				if(received.toLowerCase().equals("bmi")){
+                    dos.writeUTF("Enter Weight in Kg\n");
+                    int weight = dis.readInt();
+                    dos.writeUTF(String.valueOf(weight));
+                }
 				if(received.equals("Exit"))
 				{
 					System.out.println("Client " + this.s + " sends exit...");
