@@ -38,6 +38,10 @@ public class Client
                     System.out.println(dis.readUTF());
                     int weight = scn.nextInt();
                     dos.writeInt(weight);
+                    
+                    System.out.println(dis.readUTF());
+                    int height = scn.nextInt();
+                    dos.writeInt(height);
                 }
 				// If client sends exit,close this connection
 				// and then break from the while loop

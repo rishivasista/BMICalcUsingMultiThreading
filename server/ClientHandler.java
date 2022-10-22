@@ -40,7 +40,12 @@ class ClientHandler extends Thread
 				if(received.toLowerCase().equals("bmi")){
                     dos.writeUTF("Enter Weight in Kg\n");
                     int weight = dis.readInt();
-                    dos.writeUTF(String.valueOf(weight));
+
+                    dos.writeUTF("Enter Height in Cm\n");
+                        int height = dis.readInt();
+                    BMICalculatorBrain bmi = new BMICalculatorBrain(height, weight);
+                    dos.writeUTF(bmi.getResult());
+                    
                 }
 				if(received.equals("Exit"))
 				{
