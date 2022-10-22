@@ -36,18 +36,10 @@ class ClientHandler extends Thread
 							"Type Exit to terminate connection.");
 				
 				// receive the answer from client
-				received = dis.readUTF();
-				if(received.toLowerCase().equals("bmi")){
-                    dos.writeUTF("Enter Weight in Kg\n");
-                    int weight = dis.readInt();
+				received = dis.readUTF().toLowerCase();
 
-                    dos.writeUTF("Enter Height in Cm\n");
-                        int height = dis.readInt();
-                    BMICalculatorBrain bmi = new BMICalculatorBrain(height, weight);
-                    dos.writeUTF(bmi.getResult());
-                    
-                }
-				if(received.equals("Exit"))
+				
+				if(received.equals("exit"))
 				{
 					System.out.println("Client " + this.s + " sends exit...");
 					System.out.println("Closing this connection.");
@@ -56,21 +48,34 @@ class ClientHandler extends Thread
 					break;
 				}
 				
-				// creating Date object
-				Date date = new Date();
 				
 				// write on output stream based on the
 				// answer from the client
 				switch (received) {
 				
-					case "Date" :
-						toreturn = fordate.format(date);
-						dos.writeUTF(toreturn);
+					case "bmi" :
+                    dos.writeUTF("Enter Weight in Kg\n");
+                    int weight = dis.readInt();
+
+                    dos.writeUTF("Enter Height in Cm\n");
+                        int height = dis.readInt();
+                    BMICalculatorBrain bmi = new BMICalculatorBrain(height, weight);
+                    dos.writeUTF(bmi.getResult());
 						break;
 						
-					case "Time" :
-						toreturn = fortime.format(date);
-						dos.writeUTF(toreturn);
+					case "bmr" :
+                    dos.writeUTF("Enter Weight in Kg\n");
+                    weight = dis.readInt();
+
+                    dos.writeUTF("Enter Height in Cm\n");
+                        height = dis.readInt();
+
+                    dos.writeUTF("Enter age in years\n");
+                        int age = dis.readInt();
+                    dos.writeUTF("Enter gender as in Male or Female");
+                        String gender = dis.readUTF();
+                        BMRCalculatorBrain bmr = new BMRCalculatorBrain(gender, weight, height, age);
+                    dos.writeUTF(bmr.getResult());
 						break;
 						
 					default:
