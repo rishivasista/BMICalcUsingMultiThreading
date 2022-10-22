@@ -58,8 +58,8 @@ public class Client
                     dos.writeInt(age);
                     
                     System.out.println(dis.readUTF());
-                    String gender = scn.nextLine();
-                    dos.writeUTF(gender);
+                    int gender = scn.nextInt();
+                    dos.writeInt(gender);
                 }
 				// If client sends exit,close this connection
 				// and then break from the while loop

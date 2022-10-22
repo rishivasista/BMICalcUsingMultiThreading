@@ -1,12 +1,12 @@
 package server;
 
 public class BMRCalculatorBrain {
-    String gender = "";
+    int gender = 0;
     int weight = 0;
     int height =0;
     int age = 0;
     double result;
-    BMRCalculatorBrain(String gender, int weight, int height, int age){
+    BMRCalculatorBrain(int gender, int weight, int height, int age){
         this.gender = gender;
         this.weight = weight;
         this.height = height;
@@ -21,11 +21,11 @@ public class BMRCalculatorBrain {
         return 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
     }
     String getResult(){
-        if(gender.equals("male")){
+        if(gender==1){
             result = getBMRForMale();
             return "Your BMR is " + String.valueOf(result) + "\n\n";
         }
-        else if(gender.equals("female")){
+        else if(gender==2){
             result = getBMRForFemale();
             return "Your BMR is " + String.valueOf(result) + "\n\n";
         }
