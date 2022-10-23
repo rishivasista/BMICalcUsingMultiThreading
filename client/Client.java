@@ -54,31 +54,28 @@ public class Client {
 						height = scn.nextInt();
 						dos.writeInt(height);
 
-						System.out.println(dis.readUTF());
-						int age = scn.nextInt();
-						dos.writeInt(age);
-
-						System.out.println(dis.readUTF());
-						int gender = scn.nextInt();
-						dos.writeInt(gender);
-						break;
-
-					case "exit":
-						System.out.println("Closing this connection : " + s);
-						s.close();
-						System.out.println("Connection closed");
-						scn.close();
-						dis.close();
-						dos.close();
-						break;
-
-					default:
-						System.out.println("Invalid Choice!!");
-						break;
-
+                    System.out.println(dis.readUTF());
+                    int age = scn.nextInt();
+                    dos.writeInt(age);
+                    
+                    System.out.println(dis.readUTF());
+                    int gender = scn.nextInt();
+                    dos.writeInt(gender);
+                }
+				// If client sends exit,close this connection
+				// and then break from the while loop
+				 if(tosend.toLowerCase().equals("exit"))
+				{
+					System.out.println("Closing this connection : " + s);
+					s.close();
+					System.out.println("Connection closed");
+					break;
 				}
-
-				// printing bmi result or bmr result as requested by client
+                else {
+                    System.out.println("Invalid Choice");
+                }
+				
+				// printing date or time as requested by client
 				String received = dis.readUTF();
 				System.out.println(received);
 			}
