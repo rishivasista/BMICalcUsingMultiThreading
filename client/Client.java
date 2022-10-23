@@ -61,6 +61,10 @@ public class Client {
                     System.out.println(dis.readUTF());
                     int gender = scn.nextInt();
                     dos.writeInt(gender);
+					break;
+
+					default:
+					continue;
                 }
 				// If client sends exit,close this connection
 				// and then break from the while loop
@@ -71,9 +75,6 @@ public class Client {
 					System.out.println("Connection closed");
 					break;
 				}
-                else {
-                    System.out.println("Invalid Choice");
-                }
 				
 				// printing date or time as requested by client
 				String received = dis.readUTF();

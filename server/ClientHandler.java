@@ -77,10 +77,9 @@ class ClientHandler extends Thread
                         BMRCalculatorBrain bmr = new BMRCalculatorBrain(gender, weight, height, age);
                     dos.writeUTF(bmr.getResult());
 						break;
-						
-					default:
-						dos.writeUTF("Invalid input");
-						break;
+					
+						default:
+						continue;
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
