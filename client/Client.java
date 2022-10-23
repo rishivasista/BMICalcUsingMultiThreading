@@ -74,7 +74,7 @@ public class Client
                     System.out.println("Invalid Choice");
                 }
 				
-				// printing date or time as requested by client
+				// printing bmi or bmr result as requested by client
 				String received = dis.readUTF();
 				System.out.println(received);
 			}
