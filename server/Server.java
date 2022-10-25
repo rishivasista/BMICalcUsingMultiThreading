@@ -1,7 +1,5 @@
-package server;
 // Java implementation of Server side
-// Save file as Server.java
-
+package server;
 import java.io.*;
 import java.net.*;
 
@@ -14,8 +12,8 @@ public class Server
 		// server is listening on port 5056
 		ServerSocket ss = new ServerSocket(PORT);
 		System.out.println("Server started on port "+ PORT);
-		// running infinite loop for getting
-		// client request
+		
+		// running infinite loop for getting client request.
 		while (true)
 		{
 			Socket s = null;

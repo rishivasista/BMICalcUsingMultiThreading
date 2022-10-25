@@ -1,13 +1,9 @@
-package client;
 // Java implementation for a client
-
-// Save file as Client.java
-
+package client;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-// Client class
 public class Client {
 	static final int PORT = 5056;
 
@@ -23,12 +19,14 @@ public class Client {
 			// establish the connection with server port 5056
 			Socket s = new Socket(ip, PORT);
 			System.out.println("Connect on IP " + ip + " and Port " + PORT);
+
 			// obtaining input and out streams
 			DataInputStream dis = new DataInputStream(s.getInputStream());
 			DataOutputStream dos = new DataOutputStream(s.getOutputStream());
 
-			// the following loop performs the exchange of
-			// information between client and client handler
+			/* the following loop performs the exchange of
+			   information between client and client handler
+			*/
 			while (true) {
 				System.out.println(dis.readUTF());
 				String tosend = scn.nextLine();
@@ -66,8 +64,9 @@ public class Client {
 					default:
 					continue;
                 }
-				// If client sends exit,close this connection
-				// and then break from the while loop
+				/* If client sends exit,close this connection
+				   and then break from the while loop */
+
 				 if(tosend.toLowerCase().equals("exit"))
 				{
 					System.out.println("Closing this connection : " + s);
@@ -76,12 +75,11 @@ public class Client {
 					break;
 				}
 				
-				// printing date or time as requested by client
 				String received = dis.readUTF();
 				System.out.println(received);
 			}
 
-			// closing resources
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

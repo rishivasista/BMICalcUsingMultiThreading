@@ -1,14 +1,9 @@
 package server;
-
 import java.io.*;
-import java.text.*;
-import java.util.*;
 import java.net.*;
-// ClientHandler class
+
 class ClientHandler extends Thread
 {
-	DateFormat fordate = new SimpleDateFormat("yyyy/MM/dd");
-	DateFormat fortime = new SimpleDateFormat("hh:mm:ss");
 	final DataInputStream dis;
 	final DataOutputStream dos;
 	final Socket s;
@@ -26,7 +21,6 @@ class ClientHandler extends Thread
 	public void run()
 	{
 		String received;
-		String toreturn;
 		while (true)
 		{
 			try {
@@ -49,8 +43,9 @@ class ClientHandler extends Thread
 				}
 				
 				
-				// write on output stream based on the
-				// answer from the client
+				/* write on output stream based on the
+				   answer from the client
+				*/
 				switch (received) {
 				
 					case "bmi" :
